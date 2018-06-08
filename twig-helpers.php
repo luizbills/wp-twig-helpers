@@ -8,6 +8,8 @@ Author: Luiz Bills
 Author URI: https://luizpb.com/en
 Text Domain: twig-helpers
 Domain Path: /languages
+License: GPL-3.0
+License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 */
 
 if ( ! defined( 'WPINC' ) ) die();
