@@ -2,6 +2,8 @@
 
 use Timber\Loader;
 
+if ( ! defined( 'WPINC' ) ) die();
+
 function get_twig_template ( $path , $data = [] ) {
 	$context = $context = array_merge( Timber::get_context(), $data );
 	$cache = get_twig_cache_settings( $path );
