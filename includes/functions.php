@@ -1,7 +1,4 @@
 <?php
-
-use Timber\Loader;
-
 if ( ! defined( 'WPINC' ) ) die();
 
 function get_twig_template ( $path , $data = [] ) {
@@ -24,6 +21,6 @@ function twig_template_callback ( $path, $data = [] ) {
 function get_twig_cache_settings ( $path ) {
 	return apply_filters( 'twig_helpers_cache_settings', [
 		'expires' => false,
-		'cache_mode' => Loader::CACHE_USE_DEFAULT
+		'cache_mode' => Timber\Loader::CACHE_USE_DEFAULT
 	], $path );
 }
