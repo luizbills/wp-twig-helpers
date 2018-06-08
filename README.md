@@ -43,12 +43,14 @@ Useful to change the cache mode and expiration time of a template.
 
 ```php
 // usage
-add_filter( 'twig_helpers_cache_settings', function ( $settings ) {
+
+add_filter( 'twig_helpers_cache_settings', 'my_twig_cache_settings', 10, 2 );
+function my_twig_cache_settings ( $settings, $path ) {
 	$settings['expires'] = 8 * HOUR_IN_SECONDS; // 8 hours
-	$settings['cache_mode'] = 8 * HOUR_IN_SECONDS; // 8 hours
+	$settings['cache_mode'] = Timber\Loader::CACHE_OBJECT;
 
 	return $settings;
-} );
+}
 ```
 
 > This filter is defined in [`includes/functions.php`](includes/functions.php);
