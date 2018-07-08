@@ -53,7 +53,7 @@ function my_twig_cache_settings ( $settings, $path ) {
 }
 ```
 
-> This filter is defined in [`includes/functions.php`](includes/functions.php#L23);
+> This filter is defined in [`includes/functions.php`](includes/functions.php);
 
 ## LICENSE
 
