@@ -3,7 +3,7 @@
 Plugin Name: Twig Helpers
 Plugin URI: https://github.com/luizbills/wp-twig-helpers
 Description: Introduces helper functions to easy and fast theme development with Twig
-Version: 1.0.0
+Version: 2.0.0
 Author: Luiz Bills
 Author URI: https://luizpb.com/en
 Text Domain: twig-helpers
@@ -18,7 +18,7 @@ if ( ! class_exists( 'Twig_Helpers' ) ) :
 
 class Twig_Helpers {
 
-	const VERSION = '1.0.0';
+	const VERSION = '2.0.0';
 	const FILE = __FILE__;
 	const DIR = __DIR__;
 	const PREFIX = 'twig_helpers_';
@@ -36,6 +36,7 @@ class Twig_Helpers {
 
 	protected function includes () {
 		require_once __DIR__ . '/includes/functions.php';
+		require_once __DIR__ . '/includes/shortcode.php';
 	}
 
 	public function admin_notice () {

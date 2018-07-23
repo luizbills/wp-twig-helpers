@@ -17,7 +17,11 @@ function compile_twig_template ( $path , $data = [], $echo = true ) {
 	}
 	$cache = get_twig_cache_settings( $path );
 	$result = Timber::compile( $path, $context, $cache['expires'], $cache['cache_mode'] );
-	if ( $echo ) echo $result;
+	
+	if ( false !== $result && $echo ) {
+		echo $result;
+	}
+
 	return $result;
 } 
 
