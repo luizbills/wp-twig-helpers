@@ -12,15 +12,15 @@ Introduces helper functions to easy and fast theme development with Twig.
 
 ### Functions
 
-#### `string get_twig_template( string|array $path, array $data = [] )`
+#### `string compile_twig_template( string|array $path , array $data = [], bool $echo = true )`
 
-Returns the output of a rendered twig template.
+Print or returns the output of a rendered twig template.
 
 > Note: `$path` is a relative path of your theme twig templates.
 
-#### `void twig_template( string|array $path, array $data = [] )`
+#### `string compile_twig_string ( string $code, array $data = [], $echo = true )`
 
-Prints a rendered twig template.
+Print or returns the output of a rendered twig code.
 
 #### `callable twig_template_callback( string|array $path, array $data = [] )`
 
@@ -30,6 +30,21 @@ Returns a callable that prints a rendered twig template.
 // usage
 add_action( 'wp_footer', twig_template_callback( 'my-footer.twig', [ 'foo' => 'bar' ] ) );
 ```
+
+#### `callable twig_string_callback( string|array $path, array $data = [] )`
+
+Returns a callable that prints a rendered twig code.
+
+```php
+// usage
+add_action( 'wp_footer', twig_string_callback( '<p>{{ foo }}</p>', [ 'foo' => 'bar' ] ) );
+```
+
+### Shortcodes
+
+#### `[twig_template path="your_file.twig" foo="bar" ...]`
+
+Print the output of a rendered twig template. All shortcode parameters (except `path`) will be part of template data.
 
 ### Hooks
 
@@ -54,6 +69,18 @@ function my_twig_cache_settings ( $settings, $path ) {
 ```
 
 > This filter is defined in [`includes/functions.php`](includes/functions.php);
+
+#### `twig_helpers_before_template_{$path}` action
+
+Useful to print non-rendered twig code before a which template.
+
+> This filter is defined in [`includes/shortcode.php`](includes/shortcode.php);
+
+#### `twig_helpers_after_template_{$path}` action
+
+Useful to print non-rendered twig code after a which template.
+
+> This filter is defined in [`includes/shortcode.php`](includes/shortcode.php);
 
 ## LICENSE
 
