@@ -17,7 +17,8 @@ add_shortcode( 'twig_template', function ( $args, $content = '' ) {
 
     $result = compile_twig_template( $path, $data, false );
 
-    if ( false === $result ) {
+    // error only for admins
+    if ( false === $result && current_user_can( 'install_plugins' ) ) {
         throw new Exception( 'Invalid path in twig_template shortcode' );
     }
 
