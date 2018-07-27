@@ -1,11 +1,7 @@
 <?php
 
 add_shortcode( 'twig_template', function ( $args, $content = '' ) {
-    $defaults = [
-        'path' => ''
-    ];
-    $args = array_merge( $defaults, $args );
-    $path = $args['path'];
+    $path = isset( $args['path'] ) ? $args['path'] : '';
     $data = [];
 
     unset( $args['path'] );
